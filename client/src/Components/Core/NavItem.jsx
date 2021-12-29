@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export function NavItem(props) {
     return (
-        <a href={props.to} class="btn btn-ghost btn-sm rounded-btn">
+        <Link to={props.to} className="btn btn-ghost btn-sm rounded-btn">
             {props.children}
-        </a> 
+        </Link>
     )
 }
