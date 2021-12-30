@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom"
+import {Outlet} from "react-router-dom"
 
 
-export function Expenses(props) {
-    return (<div><Outlet /></div>)
+export function Expenses() {
+    return (<div><Outlet/></div>)
 }
