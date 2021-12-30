@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom"
-import { Card } from "../../Components/common/Card";
+import { Card } from "../../common/Card";
 
 export function Expense(props) {
-    let params = useParams();
-    const id = params.expenseId
+    // let params = useParams();
+    // const id = params.expenseId
     return (
     <div className="flex justify-center items-center">
         <Card 

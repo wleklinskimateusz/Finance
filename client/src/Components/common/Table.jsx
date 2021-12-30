@@ -1,7 +1,7 @@
 export function Table(props) {
     return (
-    <div className="overflow-x-auto">
-    <table className="table w-full">
+    <div className="overflow-x-auto flex justify-center">
+    <table className="table max-w-lg">
       <thead>
             {props.headers}
       </thead> 

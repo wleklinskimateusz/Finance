@@ -1,28 +1,35 @@
 
 import './App.css';
 import { NavBar } from './Components/Core/NavBar';
-import { History } from './Pages/History';
-import { Expenses } from './Pages/Expenses/Expenses';
-import { Expense } from './Pages/Expenses/Expense';
-import { ExpenseList } from './Pages/Expenses/ExpenseList';
-import { Stats } from './Pages/Stats';
+import { History } from './Components/Pages/History';
+import { Expenses } from './Components/Pages/Expenses/Expenses';
+import { Expense } from './Components/Pages/Expenses/Expense';
+import { Home } from './Components/Pages/Home';
+import { ExpenseList } from './Components/Pages/Expenses/ExpenseList';
+import { Stats } from './Components/Pages/Stats';
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
 import { NavItem } from './Components/Core/NavItem';
-import { NewExpense } from './Pages/Expenses/NewExpense';
+import { NewExpense } from './Components/Pages/Expenses/NewExpense';
+
+
 
 function App() {
+  
+
   return (
     <BrowserRouter>
     <div>
       <NavBar brand="Finances">
-          <NavItem to="/expenses">Expenses</NavItem>
+          <NavItem to="/expenses/list">Expenses</NavItem>
           <NavItem to="/history">History</NavItem>
           <NavItem to="/stats">Stats</NavItem>
       </NavBar>
     </div>
 
+
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="expenses" element={<Expenses />}>
         <Route path=":expenseId" element={<Expense />} />
         <Route path="list" element={<ExpenseList />} />

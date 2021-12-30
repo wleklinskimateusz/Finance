@@ -1,5 +1,5 @@
-import { Table } from "../../Components/common/Table";
-import { TableRow } from "../../Components/common/TableRow";
+import { Table } from "../../common/Table";
+import { TableRow } from "../../common/TableRow";
 
 export function ExpenseList(props) {
     const rows = [
