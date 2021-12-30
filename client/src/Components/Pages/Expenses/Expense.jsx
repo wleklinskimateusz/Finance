@@ -1,10 +1,14 @@
 import {Link, useParams} from "react-router-dom"
 import {useGetExpense} from "../../../services/useGetExpense";
 import {Card} from "../../common/Card";
+import {PageNotFound} from "../../common/PageNotFound";
 
 export function Expense() {
     let params = useParams();
     const item = useGetExpense(params.expenseId)
+    if (!item) {
+        return <PageNotFound />
+    }
     return (
         <div className="flex justify-center items-center">
             <Card
