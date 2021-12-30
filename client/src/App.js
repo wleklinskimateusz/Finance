@@ -10,33 +10,35 @@ import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {NavItem} from './Components/Core/NavItem';
 import {NewExpense} from './Components/Pages/Expenses/NewExpense';
+import {PageNotFound} from "./Components/common/PageNotFound";
 
 
 function App() {
 
 
     return (
-            <BrowserRouter>
-                <div>
-                    <NavBar brand="Finances">
-                        <NavItem to="/expenses/list">Expenses</NavItem>
-                        <NavItem to="/history">History</NavItem>
-                        <NavItem to="/stats">Stats</NavItem>
-                    </NavBar>
-                </div>
+        <BrowserRouter>
+            <div>
+                <NavBar brand="Finances">
+                    <NavItem to="/expenses/list">Expenses</NavItem>
+                    <NavItem to="/history">History</NavItem>
+                    <NavItem to="/stats">Stats</NavItem>
+                </NavBar>
+            </div>
 
 
-                <Routes>
-                    <Route path="/" element={<Home/>}/>
-                    <Route path="expenses" element={<Expenses/>}>
-                        <Route path=":expenseId" element={<Expense/>}/>
-                        <Route path="list" element={<ExpenseList/>}/>
-                        <Route path="new" element={<NewExpense/>}/>
-                    </Route>
-                    <Route path="history" element={<History/>}/>
-                    <Route path="stats" element={<Stats/>}/>
-                </Routes>
-            </BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="expenses" element={<Expenses/>}>
+                    <Route path=":expenseId" element={<Expense/>}/>
+                    <Route path="list" element={<ExpenseList/>}/>
+                    <Route path="new" element={<NewExpense/>}/>
+                </Route>
+                <Route path="history" element={<History/>}/>
+                <Route path="stats" element={<Stats/>}/>
+                <Route path={"*"} element={<PageNotFound />} />
+            </Routes>
+        </BrowserRouter>
 
     );
 }
