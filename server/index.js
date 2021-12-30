@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const {response} = require("express");
 
 app.use(express.json());
 app.use(cors());
+const dotenv = require('dotenv')
+dotenv.config();
+const Expense = require('./models/expense')
+// const Category = require('./models/category')
+
 
 const expenses = [
     {
@@ -148,9 +152,8 @@ const expenses = [
 
 ]
 
-// const db = require("./models")
 
-const PORT = 3001;
+const PORT = process.env.PORT;
 
 app.get('/api/expenses', (request, response) => {
     response.json(expenses)
@@ -164,6 +167,23 @@ app.get('/api/expenses/:id', (request, response) => {
     } else {
         response.status(404).end()
     }
+})
+
+app.post('/api/expenses/new', (request, response) => {
+    const body = request.body
+    if (body.name === undefined || body.categoryId === undefined || body.date === undefined) {
+        return response.status(400).json({error: 'Something is missing'})
+    }
+
+    const expense = new Expense({
+        name: body.name,
+        categoryId: body.categoryId,
+        date: new Date(body.date)
+    })
+
+    expense.save().then(savedExpense => {
+        response.json(savedExpense)
+    })
 })
 
 app.listen(3001, () => {
