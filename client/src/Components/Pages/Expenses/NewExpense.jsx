@@ -9,8 +9,9 @@ export function NewExpense() {
     const [successful, setSuccessful] = useState(false);
     return (
 
-        <div className="flex justify-center">
-            <div className={"col-auto"}>
+        <div className="flex justify-center items-center">
+            <div className={"col-auto flex flex-col justify-center items-center"}>
+                <Link to={"/expenses/list"} className={"btn btn-secondary my-5"}>Go Back</Link>
                 {successful && (<>
                     <Alert>New Expense Added!</Alert>
                     <div className={"divider"} />
@@ -23,7 +24,7 @@ export function NewExpense() {
                         setSuccessful(true);
                     }}/>
                 </Card>
-                <Link to={"/expenses/list"} className={"btn btn-secondary"}>Go Back</Link>
+
             </div>
         </div>
 

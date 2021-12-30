@@ -8,7 +8,7 @@ export function Expense() {
     return (
         <div className="flex justify-center items-center">
             <Card
-                title={item.cols[0]}
+                title={item?.id}
                 actions={
                     <Link to="/expenses/list">
                         <div

@@ -37,7 +37,7 @@ export function NewExpenseForm(props) {
                     <span className="label-text">cost</span>
                 </label>
                 <input {...register("cost", {required: true, min: 0, max: 2000})} type="number" step="0.01"
-                       className="input input-bordered"/>
+                       className="input input-primary"/>
             </div>
             <div className="form-control">
                 <label className="label">
