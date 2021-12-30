@@ -1,17 +1,9 @@
+import { useGetExpenses } from "../../../services/useGetExpenses";
 import { Table } from "../../common/Table";
 import { TableRow } from "../../common/TableRow";
 
 export function ExpenseList(props) {
-    const rows = [
-        {
-            id: 1,
-            cols: ["Żabka", "26-12-2012", "24.43zł"]
-        },
-        {
-            id: 2,
-            cols: ["Biedra", "24-12-2012", "25.21zł"]
-        }
-    ]
+    const rows = useGetExpenses();
     return (
     <div>
         <Table headers={(
@@ -19,10 +11,11 @@ export function ExpenseList(props) {
             <th></th> 
             <th>Name</th> 
             <th>Date</th> 
+            <th>Category</th>
             <th>Cost</th>
         </tr>)
         }>
-            {rows.map(item => (<TableRow number={item.id} key={item.id} cols={item.cols} url="expenses"/>))}
+            {rows.map(item => (<TableRow number={item.number} key={item.number} cols={Object.values(item.cols)} url="expenses"/>))}
             
         </Table>
     </div>

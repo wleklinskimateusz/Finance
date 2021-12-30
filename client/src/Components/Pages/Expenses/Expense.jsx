@@ -1,13 +1,14 @@
 import { Link, useParams } from "react-router-dom"
+import { useGetExpense } from "../../../services/useGetExpense";
 import { Card } from "../../common/Card";
 
 export function Expense(props) {
-    // let params = useParams();
-    // const id = params.expenseId
+    let params = useParams();
+    const item = useGetExpense(params.expenseId)
     return (
     <div className="flex justify-center items-center">
         <Card 
-            title={"Biedra"} 
+            title={item.cols[0]} 
             actions={
                 <Link to="/expenses/list" >
                     <div 
