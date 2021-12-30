@@ -6,15 +6,14 @@ export function TableRow(props) {
     let navigate = useNavigate();
 
     return (
-        <tr className={isHovered ? "hover" : ""}
+        <tr {...props.row.getRowProps()} className={isHovered ? "hover" : ""}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onMouseDown={() => {
                 navigate(`/${props.url}/${props.number}`)
             }}
         >
-            <th>{props.number}</th>
-            {props.cols.map(item => (<td>{item}</td>))}
+            {props.children}
         </tr>
     )
 }
