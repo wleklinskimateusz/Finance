@@ -1,4 +1,10 @@
 # Finance
+
+## Technologies
+- React
+- Tailwind CSS
+- DaisyUI
+
 ## Setup
 - clone repository and go to the project root directory
 - `cd client` and `npm install` to install required dependecies for the frontend
