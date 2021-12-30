@@ -10,6 +10,7 @@ import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {NavItem} from './Components/Core/NavItem';
 import {NewExpense} from './Components/Pages/Expenses/NewExpense';
+import {PageNotFound} from "./Components/common/PageNotFound";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                 </Route>
                 <Route path="history" element={<History/>}/>
                 <Route path="stats" element={<Stats/>}/>
+                <Route path={"*"} element={<PageNotFound />} />
             </Routes>
         </BrowserRouter>
 
