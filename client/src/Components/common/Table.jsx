@@ -15,8 +15,12 @@ export function Table(props) {
     const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = useTable({columns, data})
 
     return (
-        <div className="overflow-x-auto flex justify-center">
-            <table {...getTableProps()} className="table max-w-lg table-bordered shadow">
+        <div className="overflow-x-auto flex justify-center set-scroll" style={{
+            "height": '600px',
+            'overflow-y': 'auto',
+            'display': 'block'
+        }}>
+            <table {...getTableProps()} className="table max-w-lg table-bordered shadow overflow-auto">
                 <thead>
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>

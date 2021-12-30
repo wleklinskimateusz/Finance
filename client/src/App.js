@@ -16,27 +16,27 @@ function App() {
 
 
     return (
-        <BrowserRouter>
-            <div>
-                <NavBar brand="Finances">
-                    <NavItem to="/expenses/list">Expenses</NavItem>
-                    <NavItem to="/history">History</NavItem>
-                    <NavItem to="/stats">Stats</NavItem>
-                </NavBar>
-            </div>
+            <BrowserRouter>
+                <div>
+                    <NavBar brand="Finances">
+                        <NavItem to="/expenses/list">Expenses</NavItem>
+                        <NavItem to="/history">History</NavItem>
+                        <NavItem to="/stats">Stats</NavItem>
+                    </NavBar>
+                </div>
 
 
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="expenses" element={<Expenses/>}>
-                    <Route path=":expenseId" element={<Expense/>}/>
-                    <Route path="list" element={<ExpenseList/>}/>
-                    <Route path="new" element={<NewExpense/>}/>
-                </Route>
-                <Route path="history" element={<History/>}/>
-                <Route path="stats" element={<Stats/>}/>
-            </Routes>
-        </BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="expenses" element={<Expenses/>}>
+                        <Route path=":expenseId" element={<Expense/>}/>
+                        <Route path="list" element={<ExpenseList/>}/>
+                        <Route path="new" element={<NewExpense/>}/>
+                    </Route>
+                    <Route path="history" element={<History/>}/>
+                    <Route path="stats" element={<Stats/>}/>
+                </Routes>
+            </BrowserRouter>
 
     );
 }
