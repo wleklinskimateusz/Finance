@@ -1,3 +1,7 @@
-export function Stats(props) {
-    return (<div>Stats</div>)
+import {PageUnderConstruction} from "../common/PageUnderConstruction";
+
+export function Stats() {
+    return (
+        <PageUnderConstruction />
+    )
 }

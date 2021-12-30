@@ -1,3 +1,7 @@
-export function History(props) {
-    return (<div>History</div>)
+import {PageUnderConstruction} from "../common/PageUnderConstruction";
+
+export function History() {
+    return (
+        <PageUnderConstruction/>
+    )
 }
