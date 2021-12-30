@@ -20,7 +20,7 @@ function App() {
         <BrowserRouter>
             <div>
                 <NavBar brand="Finances">
-                    <NavItem to="/expenses/list">Expenses</NavItem>
+                    <NavItem to="/expenses">Expenses</NavItem>
                     <NavItem to="/history">History</NavItem>
                     <NavItem to="/stats">Stats</NavItem>
                 </NavBar>
