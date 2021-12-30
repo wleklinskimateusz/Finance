@@ -1,9 +1,11 @@
-import {useGetExpenses} from "../../../services/useGetExpenses";
 import {Table} from "../../common/Table";
 import {Link} from "react-router-dom";
+import {useFetch} from "../../../Hooks/useFetch";
 
 export function ExpenseList() {
-    const rows = useGetExpenses();
+    const [rows, rowsState] = useFetch("http://localhost:3001/api/expenses");
+    if (rowsState !== "finished")
+        return null
     return (
         <div className={"flex flex-col justify-center items-center"}>
             <div className={"my-5"}>

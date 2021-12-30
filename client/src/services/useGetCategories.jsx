@@ -1,9 +1,10 @@
 import {useGetExpenses} from "./useGetExpenses";
 
 export function useGetCategories() {
-    const expenses = useGetExpenses();
-
-    return [...new Set(expenses.map(item => item.category))]
+    const [expenses, expensesState] = useGetExpenses();
+    if (expenses)
+        return [...new Set(expenses.map(item => item.category))]
+    else return []
 
 
 }

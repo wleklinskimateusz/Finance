@@ -1,9 +1,6 @@
-import {useGetExpenses} from "./useGetExpenses";
+import {useFetch} from "../Hooks/useFetch";
 
 export function useGetExpense(expenseId) {
-    const expenses = useGetExpenses();
-
-    return expenses.find(element => element.id === parseInt(expenseId));
-
+    return useFetch(`http://localhost:3001/api/expenses/${expenseId}`)
 
 }

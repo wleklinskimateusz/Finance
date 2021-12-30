@@ -5,14 +5,17 @@ import {PageNotFound} from "../../common/PageNotFound";
 
 export function Expense() {
     let params = useParams();
-    const item = useGetExpense(params.expenseId)
-    if (!item) {
+    const [expense, expenseState] = useGetExpense(params.expenseId)
+    if (expenseState === "fetching") {
+        return null
+    }
+    if (!expense) {
         return <PageNotFound />
     }
     return (
         <div className="flex justify-center items-center">
             <Card
-                title={item?.id}
+                title={expense?.id}
                 actions={
                     <Link to="/expenses/list">
                         <div
