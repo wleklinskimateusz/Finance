@@ -3,19 +3,17 @@ import {Link} from "react-router-dom";
 import {useFetch} from "../../../Hooks/useFetch";
 
 export function ExpenseList() {
-    const [rows, rowsState] = useFetch("http://localhost:3001/api/expenses");
+    const [rows, rowsState] = useFetch("http://localhost:3002/api/expenses");
     if (rowsState !== "finished")
-        return null
+        return rowsState
     return (
         <div className={"flex flex-col justify-center items-center"}>
             <div className={"my-5"}>
                 <Link to={"/expenses/new"} className={"btn btn-secondary"}>New Expense</Link>
             </div>
 
-            <div>
-                <Table data={rows} headers={getHeaders()}>
+            <div>{!rows ? (<h2>No data</h2>) : (<Table data={rows} headers={getHeaders()} />)}
 
-                </Table>
             </div>
 
         </div>
@@ -26,10 +24,6 @@ export function ExpenseList() {
 function getHeaders() {
     return [
         {
-            Header: "ID",
-            accessor: "id"
-        },
-        {
             Header: 'Name',
             accessor: 'name'
         },
@@ -39,7 +33,7 @@ function getHeaders() {
         },
         {
             Header: "Category",
-            accessor: "category"
+            accessor: "categoryId"
         },
         {
             Header: "Cost",

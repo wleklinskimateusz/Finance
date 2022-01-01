@@ -34,14 +34,16 @@ app.get('/api/expenses/:id', (request, response) => {
 
 app.post('/api/expenses/new', (request, response) => {
     const body = request.body
-    if (body.name === undefined || body.categoryId === undefined || body.date === undefined) {
+    console.log(body)
+    if (body.name === undefined || body.category === undefined || body.date === undefined) {
         return response.status(400).json({error: 'Something is missing'})
     }
 
     const expense = new Expense({
         name: body.name,
-        categoryId: body.categoryId,
-        date: new Date(body.date)
+        categoryId: body.category,
+        date: new Date(body.date),
+        cost: body.cost
     })
 
     expense.save()
@@ -50,12 +52,12 @@ app.post('/api/expenses/new', (request, response) => {
     })
 })
 
-app.get('/api/cateogries', (request, response) => {
+app.get('/api/categories', (request, response) => {
     Category.find({}).then(categories => {
         response.json(categories)
     })
 })
-app.get('/api/category/:id', (request, response) => {
+app.get('/api/categories/:id', (request, response) => {
     Category.findById(request.params.id)
         .then(category => {
             if (category) {
@@ -73,8 +75,12 @@ app.get('/api/category/:id', (request, response) => {
 
 app.post('/api/categories/new', (request, response) => {
     const body = request.body
+    console.log(request)
     if (body.name === undefined) {
-        return response.status(400).json({error: 'Something is missing'})
+        return response.status(400).json({
+            error: 'Something is missing',
+            request: body
+        })
     }
 
     const category = new Category({
@@ -87,6 +93,6 @@ app.post('/api/categories/new', (request, response) => {
     })
 })
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log(`Server Running on port: ${PORT}`);
 })
