@@ -1,7 +1,6 @@
 const mongoose = require('../db')
 
 const categorySchema = new mongoose.Schema({
-    id: Number,
     name: String,
 })
 
