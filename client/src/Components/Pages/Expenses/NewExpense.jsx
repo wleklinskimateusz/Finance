@@ -19,10 +19,7 @@ export function NewExpense() {
                     )}
                 <Card title="New Expense">
 
-                    <NewExpenseForm onSubmit={(data) => {
-                        console.log(data)
-                        setSuccessful(true);
-                    }}/>
+                    <NewExpenseForm onSuccess={() => setSuccessful(true)} />
                 </Card>
 
             </div>

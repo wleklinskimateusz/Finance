@@ -1,10 +1,8 @@
-import {useGetExpenses} from "./useGetExpenses";
+
+import {useFetch} from "../Hooks/useFetch";
 
 export function useGetCategories() {
-    const [expenses] = useGetExpenses();
-    if (expenses)
-        return [...new Set(expenses.map(item => item.category))]
-    else return []
+    return useFetch("http://localhost:3002/api/categories")
 
 
 }

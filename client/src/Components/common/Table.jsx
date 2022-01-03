@@ -17,7 +17,7 @@ export function Table(props) {
     return (
         <div className="overflow-x-auto flex justify-center set-scroll" style={{
             "height": '600px',
-            'overflow-y': 'auto',
+            'overflowY': 'auto',
             'display': 'block'
         }}>
             <table {...getTableProps()} className="table max-w-lg table-bordered shadow overflow-auto">
