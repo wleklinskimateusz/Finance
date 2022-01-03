@@ -2,15 +2,18 @@ import './App.css';
 import {NavBar} from './Components/Core/NavBar';
 import {History} from './Components/Pages/History';
 import {Expenses} from './Components/Pages/Expenses/Expenses';
-import {Expense} from './Components/Pages/Expenses/Expense';
 import {Home} from './Components/Pages/Home';
-import {ExpenseList} from './Components/Pages/Expenses/ExpenseList';
 import {Stats} from './Components/Pages/Stats';
-import React from "react";
+import React, {useState} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {NavItem} from './Components/Core/NavItem';
 import {NewExpense} from './Components/Pages/Expenses/NewExpense';
 import {PageNotFound} from "./Components/common/PageNotFound";
+import {SingleView} from "./Components/Core/SingleView";
+import {ListView} from "./Components/Core/ListView";
+import {NewExpenseForm} from "./Components/forms/NewExpenseForm";
+import {Message} from "./Components/common/Message";
+import {RouteGroup} from "./Components/Core/RouteGroup";
 
 function App() {
 
@@ -26,13 +29,10 @@ function App() {
             </div>
 
 
+
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="expenses" element={<Expenses/>}>
-                    <Route path=":expenseId" element={<Expense/>}/>
-                    <Route path="list" element={<ExpenseList/>}/>
-                    <Route path="new" element={<NewExpense/>}/>
-                </Route>
+                <RouteGroup name={"expense"} keys={["name", "category", "cost", "date"]} form={<NewExpenseForm />} />
                 <Route path="history" element={<History/>}/>
                 <Route path="stats" element={<Stats/>}/>
                 <Route path={"*"} element={<PageNotFound/>}/>

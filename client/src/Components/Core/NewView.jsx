@@ -4,7 +4,7 @@ import {useState} from "react";
 import {Alert} from "../../common/Alert";
 import {Link} from "react-router-dom";
 
-export function NewExpense(name, form) {
+export function NewView(name, form) {
 
 
     return (

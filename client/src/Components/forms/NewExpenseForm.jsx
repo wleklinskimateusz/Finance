@@ -1,10 +1,10 @@
 import {useForm} from "react-hook-form";
-import {useGetCategories} from "../../services/useGetCategories";
 import axios from "axios";
+import {useFetch} from "../../Hooks/useFetch";
 
-export function NewExpenseForm() {
+export function NewExpenseForm(props) {
     const {register, handleSubmit, reset} = useForm();
-    const [categories] = useGetCategories();
+    const [categories] = useFetch("http://localhost:3002/api/categories");
     function onSubmit(data) {
         axios
             .post("http://localhost:3002/api/expenses/new", data)
