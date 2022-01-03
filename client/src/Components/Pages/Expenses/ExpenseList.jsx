@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {useFetch} from "../../../Hooks/useFetch";
 
 export function ExpenseList() {
-    const [rows, rowsState] = useFetch("http://localhost:3001/api/expenses");
+    const [rows, rowsState] = useFetch("http://localhost:3002/api/expenses");
     if (rowsState !== "finished")
         return null
     return (

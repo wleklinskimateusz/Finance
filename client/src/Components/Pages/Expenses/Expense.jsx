@@ -1,34 +1,19 @@
-import {Link, useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import {useGetExpense} from "../../../services/useGetExpense";
-import {Card} from "../../common/Card";
 import {PageNotFound} from "../../common/PageNotFound";
+import {SingleView} from "../../Core/SingleView";
 
 export function Expense() {
+
     let params = useParams();
-    const [expense, expenseState] = useGetExpense(params.expenseId)
-    if (expenseState === "fetching") {
+    const [itemInstance, itemState] = useGetExpense(params.id)
+    if (itemState === "fetching") {
         return null
     }
-    if (!expense) {
-        return <PageNotFound />
+    if (!itemInstance) {
+        return <PageNotFound/>
     }
-    return (
-        <div className="flex justify-center items-center">
-            <Card
-                title={expense?.id}
-                actions={
-                    <Link to="/expenses/list">
-                        <div
-                            className="btn btn-primary">
-                            Back
-                        </div>
-                    </Link>
-                }
-            >
-                <p>Category: Groceries</p>
-                <p>Cost: 12.5zł</p>
-                <p>Date: 12.12.2021</p>
-            </Card>
-        </div>
-    )
+    // TODO(change itemInstance to display category instead of categoryId)
+    return (<SingleView name={"expenses"} item={itemInstance} keys={["name", "category", "cost", "date"]}/>)
+
 }
