@@ -1,9 +1,12 @@
-import {useMemo} from "react";
+import React, {useMemo} from "react";
+
 // noinspection ES6CheckImport
 import {useTable} from "react-table";
 import {TableRow} from "./TableRow";
 
-export function Table(props) {
+
+
+export function Table(props: {data: any, headers: any}) {
     const raw_data = props.data
     const raw_headers = props.headers
     const data = useMemo(
@@ -17,7 +20,7 @@ export function Table(props) {
     return (
         <div className="overflow-x-auto flex justify-center set-scroll" style={{
             "height": '600px',
-            'overflow-y': 'auto',
+            'overflowY': 'auto',
             'display': 'block'
         }}>
             <table {...getTableProps()} className="table max-w-lg table-bordered shadow overflow-auto">
@@ -42,15 +45,17 @@ export function Table(props) {
                         prepareRow(row)
                         return (
                             <TableRow row={row} number={row.id} url={"expenses"}>
-                                {
-                                    row.cells.map(cell => {
-                                        return (
-                                            <td {...cell.getCellProps()}>
-                                                {cell.render('Cell')}
-                                            </td>
-                                        )
-                                    })
-                                }
+                                <>
+                                    {
+                                        row.cells.map(cell => {
+                                            return (
+                                                <td {...cell.getCellProps()}>
+                                                    {cell.render('Cell')}
+                                                </td>
+                                            )
+                                        })
+                                    }
+                                </>
                             </TableRow>
                         )
                     })

@@ -1,4 +1,6 @@
-export function NavBar(props) {
+import React from "react";
+
+export function NavBar(props: {brand: string, children: JSX.Element}) {
     return (
         <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
             <div className="px-2 mx-2 navbar-start">

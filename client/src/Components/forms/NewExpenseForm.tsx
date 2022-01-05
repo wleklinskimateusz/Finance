@@ -1,12 +1,27 @@
 import {useForm} from "react-hook-form";
-import {useGetCategories} from "../../services/useGetCategories";
+import axios from "axios";
+import {useFetch} from "../../Hooks/useFetch";
+import React from "react";
+import {Category} from "../../Types/Category";
 
-export function NewExpenseForm(props) {
+export function NewExpenseForm(props: { onSuccess: any }) {
     const {register, handleSubmit, reset} = useForm();
-    const categories = useGetCategories();
-    function onSubmit(data) {
-        props.onSubmit(data);
-        reset();
+    const categories: Category[] = useFetch("http://localhost:3002/api/categories");
+
+    function onSubmit(data: { name: string, category: number, cost: number, date: Date, }) {
+        axios
+            .post("http://localhost:3002/api/expenses/new", data)
+            .then(r => console.log(r.data))
+            .finally(
+            props.onSuccess()
+
+    )
+        reset()
+    }
+
+    // useEffect(()=> console.log(categories))
+    if (categories === null) {
+        return <p>Loading...</p>
     }
 
     return (
@@ -25,8 +40,8 @@ export function NewExpenseForm(props) {
                 </label>
                 <select {...register("category", {required: true})}
                         className="select select-bordered select-primary w-full max-w-xs">
-                    {categories.map(category => (
-                        <option key={category}>{category}</option>
+                    {categories.map((category, index) => (
+                        <option value={category.id} key={index}>{category.name}</option>
                     ))}
 
                 </select>

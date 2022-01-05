@@ -1,7 +1,7 @@
-import {useState} from "react"
+import React, {useState} from "react"
 import {useNavigate} from "react-router-dom";
 
-export function TableRow(props) {
+export function TableRow(props: any) {
     const [isHovered, setIsHovered] = useState(false);
     let navigate = useNavigate();
 

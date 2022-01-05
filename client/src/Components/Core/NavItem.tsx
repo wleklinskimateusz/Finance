@@ -1,6 +1,7 @@
 import {Link, useLocation} from "react-router-dom";
+import React from "react";
 
-export function NavItem(props) {
+export function NavItem(props: {to: string, children: JSX.Element | string}) {
     let current = useLocation();
 
     const active = current.pathname.includes(props.to)
