@@ -2,8 +2,9 @@ import {Link, useParams} from "react-router-dom"
 import {Card} from "../common/Card";
 import {PageNotFound} from "../common/PageNotFound";
 import {useFetch} from "../../Hooks/useFetch";
+import React from "react";
 
-export function SingleView({name ,item, keys}) {
+export function SingleView({name, keys}: {name: string, keys: string[]}) {
     const params = useParams();
     // TODO(change itemInstance to display category instead of categoryId)
     const [itemInstance, itemState] = useFetch(`http://localhost:3002/api/expenses/${params.id}`)
@@ -26,7 +27,7 @@ export function SingleView({name ,item, keys}) {
                     </Link>
                 }
             >
-                {keys.map((key) => <p>{key.toUpperCase()}: {item[key]}</p>)}
+                <>{keys.map((key) => <p>{key.toUpperCase()}: {itemInstance[key]}</p>)}</>
             </Card>
         </div>
     )

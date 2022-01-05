@@ -1,6 +1,7 @@
+import React from "react";
 import {Alert} from "./Alert";
 
-export function Message({display}) {
+export function Message({display}: {display: boolean}) {
     return (
         <>
             {

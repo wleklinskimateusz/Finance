@@ -1,4 +1,6 @@
-export function Card(props) {
+import React from "react";
+
+export function Card(props: { title: string, children: JSX.Element, actions?: JSX.Element }) {
     return (
         <div className=" card card-bordered max-w-lg shadow">
             <div className="card-body">

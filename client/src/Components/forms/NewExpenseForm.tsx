@@ -1,19 +1,24 @@
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useFetch} from "../../Hooks/useFetch";
+import React from "react";
+import {Category} from "../../Types/Category";
 
-export function NewExpenseForm(props) {
+export function NewExpenseForm(props: { onSuccess: any }) {
     const {register, handleSubmit, reset} = useForm();
-    const [categories] = useFetch("http://localhost:3002/api/categories");
-    function onSubmit(data) {
+    const categories: Category[] = useFetch("http://localhost:3002/api/categories");
+
+    function onSubmit(data: { name: string, category: number, cost: number, date: Date, }) {
         axios
             .post("http://localhost:3002/api/expenses/new", data)
             .then(r => console.log(r.data))
             .finally(
-                props.onSuccess()
-            )
+            props.onSuccess()
+
+    )
         reset()
     }
+
     // useEffect(()=> console.log(categories))
     if (categories === null) {
         return <p>Loading...</p>

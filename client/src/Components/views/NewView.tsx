@@ -1,7 +1,8 @@
 import {Card} from "../common/Card";
 import {Link} from "react-router-dom";
+import React from "react";
 
-export function NewView(name, form) {
+export function NewView({name, form}: {name: string, form: JSX.Element }) {
 
 
     return (
@@ -10,8 +11,7 @@ export function NewView(name, form) {
             <div className={"col-auto flex flex-col justify-center items-center"}>
                 <Link to={`/${name}/list`} className={"btn btn-secondary my-5"}>Go Back</Link>
 
-                <Card title={`New ${name.toUpperCase()}`}>
-                    {form}
+                <Card title={`New ${name.toUpperCase()}`}>{form}
 
 
                 </Card>

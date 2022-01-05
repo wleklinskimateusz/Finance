@@ -1,7 +1,8 @@
 import {PageUnderConstruction} from "../common/PageUnderConstruction";
+import React from "react";
 
-export function History() {
+export function Stats() {
     return (
-        <PageUnderConstruction/>
+        <PageUnderConstruction />
     )
 }

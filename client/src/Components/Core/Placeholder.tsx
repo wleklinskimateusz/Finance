@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {Message} from "../common/Message";
 
 
-export function Placeholder(name, display) {
+export function Placeholder({name, display = true}: { name: string, display?: boolean }) {
     const navigate = useNavigate();
     const current = useLocation();
     useEffect(() => {
@@ -12,8 +12,6 @@ export function Placeholder(name, display) {
         }
 
     })
-
-
     return (
         <div>
             <Message display={display}/>

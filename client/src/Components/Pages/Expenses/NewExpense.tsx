@@ -1,10 +1,8 @@
 import {Card} from "../../common/Card"
-import {NewExpenseForm} from "../../forms/NewExpenseForm";
-import {useState} from "react";
-import {Alert} from "../../common/Alert";
 import {Link} from "react-router-dom";
+import React from "react";
 
-export function NewExpense(name, form) {
+export function NewExpense({name, form}: {name: string, form: JSX.Element}) {
 
 
     return (
