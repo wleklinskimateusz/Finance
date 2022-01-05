@@ -1,9 +1,9 @@
 import {Route} from "react-router-dom";
-import {SingleView} from "./SingleView";
-import {ListView} from "./ListView";
+import {SingleView} from "../views/SingleView";
+import {ListView} from "../views/ListView";
 import React, {useState} from "react";
 import {Placeholder} from "./Placeholder";
-import {NewView} from "./NewView";
+import {NewView} from "../views/NewView";
 import {AddExtraProps} from "../util/AddExtraProps";
 
 export function RouteGroup({name, keys, form}) {

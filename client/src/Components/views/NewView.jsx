@@ -1,7 +1,4 @@
-import {Card} from "../../common/Card"
-import {NewExpenseForm} from "../../forms/NewExpenseForm";
-import {useState} from "react";
-import {Alert} from "../../common/Alert";
+import {Card} from "../common/Card";
 import {Link} from "react-router-dom";
 
 export function NewView(name, form) {

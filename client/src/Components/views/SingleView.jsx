@@ -1,7 +1,6 @@
 import {Link, useParams} from "react-router-dom"
 import {Card} from "../common/Card";
 import {PageNotFound} from "../common/PageNotFound";
-import {useGetExpense} from "../../services/useGetExpense";
 import {useFetch} from "../../Hooks/useFetch";
 
 export function SingleView({name ,item, keys}) {
