@@ -1,4 +1,5 @@
 # Finance
+Currently I am not working on this project. To visit similar project but withoud CSS frameworks like Tailwind CSS go to: [https://github.com/matix0508/financeNext](https://github.com/matix0508/financeNext)
 
 ## Technologies
 - React
